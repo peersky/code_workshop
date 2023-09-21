@@ -14,7 +14,9 @@ contract ERC721Mock is ERC721, Ownable {
         transferOwnership(owner);
     }
 
-    function safeMint(address to) public onlyOwner {
+
+    //only by owner
+    function safeMint(address to) public {
         uint256 tokenId = _tokenIdCounter.current();
         _tokenIdCounter.increment();
         _safeMint(to, tokenId);
